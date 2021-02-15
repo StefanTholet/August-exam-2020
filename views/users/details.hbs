@@ -1,0 +1,31 @@
+
+    <main>
+        <div class="offer-details">
+            <h1>{{product.name}}</h1>
+            <div class="info">
+                <img src="{{product.imageUrl}}"
+                    alt="">
+                <div class="description">{{product.description}}
+                    <br>
+                    <br>
+                    <p> <strong>Buyers:</strong> {{product.sales}}</p>
+                    <br>
+                    <p class="price">${{product.price}}</p>
+                </div>
+            </div>
+            <div class="actions">
+                {{#if product.isCreator}}
+                <a href="/products/{{product._id}}/edit">Edit</a>
+                <a href="/products/{{product._id}}/delete">Delete</a>
+                {{else}}
+                {{#unless product.bought}}
+                <a href="/products/{{product._id}}/buy">Buy</a>
+                {{/unless}}
+                {{/if}}
+                {{#if product.bought}}
+                <span>You bought it</span>
+                {{/if}}                    
+            </div>
+        </div>
+    </main>
+   
